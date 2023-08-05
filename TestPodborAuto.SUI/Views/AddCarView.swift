@@ -31,35 +31,43 @@ struct AddCarView: View {
     }
     
     var body: some View {
-        VStack {
-            TextField("Марка", text: $brand)
-            TextField("Модель", text: $model)
-            TextField("Пробег", text: $mileage)
-                .keyboardType(.numberPad)
-            TextField("Год выпуска", text: $yearOfRelease)
-            TextField("Количество владельцев по ПТС", text: $countOfOwners)
-                .keyboardType(.numberPad)
-            TextField("Цена", text: $price)
-                .keyboardType(.numberPad)
-            
-            // Кнопка для создания новой машины
-            Button("Добавить авто") {
-                if !brand.isEmpty,
-                   !model.isEmpty,
-                   let mileage = Int(mileage),
-                   !yearOfRelease.isEmpty,
-                   let countOfOwners = Int(countOfOwners),
-                   let price = Int(price) {
-                    
-                    let newCar = Car(id: UUID(),
-                                     brand: brand,
-                                     model: model,
-                                     mileage: mileage,
-                                     countOfOwners: countOfOwners,
-                                     yearOfRelease: yearOfRelease,
-                                     price: price,
-                                     imageName: "")
-                    onComplete(newCar)
+        ZStack {
+            Color.blue.opacity(0.1)
+                .ignoresSafeArea()
+            VStack {
+                Spacer()
+                TextField("Марка", text: $brand)
+                TextField("Модель", text: $model)
+                TextField("Пробег", text: $mileage)
+                    .keyboardType(.numberPad)
+                TextField("Год выпуска", text: $yearOfRelease)
+                TextField("Количество владельцев по ПТС", text: $countOfOwners)
+                    .keyboardType(.numberPad)
+                TextField("Цена", text: $price)
+                    .keyboardType(.numberPad)
+                Spacer()
+                Button(action: {
+                    if !brand.isEmpty,
+                       !model.isEmpty,
+                       let mileage = Int(mileage),
+                       !yearOfRelease.isEmpty,
+                       let countOfOwners = Int(countOfOwners),
+                       let price = Int(price) {
+                        
+                        let newCar = Car(id: UUID(),
+                                         brand: brand,
+                                         model: model,
+                                         mileage: mileage,
+                                         countOfOwners: countOfOwners,
+                                         yearOfRelease: yearOfRelease,
+                                         price: price,
+                                         imageName: "")
+                        onComplete(newCar)
+                    }
+                }
+                ) {
+                    Text("Добавить авто")
+                        .font(.title2)
                 }
             }
             .padding()
@@ -69,9 +77,12 @@ struct AddCarView: View {
 
 
 
-//
-//struct AddCarView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        AddCarView(car: DataStore().cars.first!, onComplete: (Car) -> Void)
-//    }
-//}
+
+struct AddCarView_Previews: PreviewProvider {
+    @State static private var car: Car? = nil
+    
+    static var previews: some View {
+        AddCarView(car: $car) { newCar in
+        }
+    }
+}

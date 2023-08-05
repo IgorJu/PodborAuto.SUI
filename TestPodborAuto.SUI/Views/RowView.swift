@@ -11,7 +11,7 @@ struct RowView: View {
     let car: Car
     var body: some View {
         VStack.init(alignment: .leading) {
-            Image(car.imageName ?? "bmwX5")
+            Image(car.imageName ?? "")
                 .resizable()
                 .frame(width: 280, height: 200)
                 .cornerRadius(5)

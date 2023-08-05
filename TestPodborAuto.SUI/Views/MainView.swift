@@ -13,48 +13,43 @@ struct MainView: View {
     @State private var isShowingAddCarScreen = false
     @State private var car: Car? = nil
     
-    
     var body: some View {
-        VStack {
-            HStack {
-                Button(action: {
-                    isShowingAddCarScreen.toggle()
-                }) {
-                    Image(systemName: "plus")
+        ZStack {
+            Color.blue.opacity(0.1)
+                .ignoresSafeArea()
+            VStack {
+                HStack {
+                    Button(action: {
+                        isShowingAddCarScreen.toggle()
+                    }) {
+                        Image(systemName: "plus")
+                    }
+                    .padding(.leading, 10)
+                    Spacer()
+                    Text("Сортировка по цене")
+                        .foregroundColor(.blue)
+                    Button(action: sortByLowestPrice) {
+                        Image(systemName: "arrowtriangle.up")
+                    }
+                    .font(.title2)
+                    Button(action: sortByHighestPrice) {
+                        Image(systemName: "arrowtriangle.down")
+                    }
+                    .font(.title2)
+                    .padding(.trailing, 10)
                 }
-                .padding(.leading, 10)
-                
-                Spacer()
-                Text("Сортировка по цене")
-                    .foregroundColor(.blue)
-                Button(action: sortByLowestPrice) {
-                    Image(systemName: "arrowtriangle.up")
+                .sheet(isPresented: $isShowingAddCarScreen) {
+                    AddCarView(car: $car) { newCar in
+                        data.cars.append(newCar)
+                        isShowingAddCarScreen.toggle()
+                    }
                 }
-                .font(.title2)
-                Button(action: sortByHighestPrice) {
-                    Image(systemName: "arrowtriangle.down")
-                }
-                .font(.title2)
-                .padding(.trailing, 10)
-            }
-//            NavigationView {
-//                List(data.cars) { car in
-//                    NavigationLink(destination: CarDetailView(car: $car)) {
-//                        RowView(car: car)
-//                            .navigationTitle("Авто Подбор")
-//                    }
-//                }
-//                .sheet(isPresented: $isShowingAddCarScreen) {
-//                    AddCarView(car: $car) { newCar in
-//                        data.cars.append(newCar)
-//                        isShowingAddCarScreen.toggle()
-            //                    }
-            //                }
-            NavigationView {
-                List(data.cars) { car in
-                    NavigationLink(destination: CarDetailView(car: binding(for: car))) {
-                        RowView(car: car)
-                            .navigationTitle("Авто Подбор")
+                NavigationView {
+                    List(data.cars) { car in
+                        NavigationLink(destination: CarDetailView(car: binding(for: car))) {
+                            RowView(car: car)
+                                .navigationTitle("Авто Подбор")
+                        }
                     }
                 }
             }
@@ -72,8 +67,6 @@ struct MainView: View {
            )
        }
    
-            
-    
     private func sortByLowestPrice() {
         data.cars.sort { $0.price < $1.price }
     }
