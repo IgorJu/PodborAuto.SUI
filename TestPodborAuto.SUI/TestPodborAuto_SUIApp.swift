@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct TestPodborAuto_SUIApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
 }

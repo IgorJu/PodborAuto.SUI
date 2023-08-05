@@ -8,17 +8,29 @@
 
 /* Begin PBXBuildFile section */
 		78AAF9C52A7D1A3C00FCAE13 /* TestPodborAuto_SUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AAF9C42A7D1A3C00FCAE13 /* TestPodborAuto_SUIApp.swift */; };
-		78AAF9C72A7D1A3C00FCAE13 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AAF9C62A7D1A3C00FCAE13 /* ContentView.swift */; };
+		78AAF9C72A7D1A3C00FCAE13 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AAF9C62A7D1A3C00FCAE13 /* MainView.swift */; };
 		78AAF9C92A7D1A3D00FCAE13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78AAF9C82A7D1A3D00FCAE13 /* Assets.xcassets */; };
 		78AAF9CC2A7D1A3D00FCAE13 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78AAF9CB2A7D1A3D00FCAE13 /* Preview Assets.xcassets */; };
+		78AAF9D32A7D1A7B00FCAE13 /* CarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AAF9D22A7D1A7B00FCAE13 /* CarDetailView.swift */; };
+		78AAF9D52A7D1A8400FCAE13 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AAF9D42A7D1A8400FCAE13 /* Car.swift */; };
+		78AAF9D72A7D1A8F00FCAE13 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AAF9D62A7D1A8F00FCAE13 /* DataStore.swift */; };
+		78AAF9D92A7D2E4100FCAE13 /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AAF9D82A7D2E4100FCAE13 /* RowView.swift */; };
+		78AAF9DB2A7D2F1900FCAE13 /* Extension + View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AAF9DA2A7D2F1900FCAE13 /* Extension + View.swift */; };
+		78AAF9E12A7D61C000FCAE13 /* AddCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AAF9E02A7D61C000FCAE13 /* AddCarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		78AAF9C12A7D1A3C00FCAE13 /* TestPodborAuto.SUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestPodborAuto.SUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78AAF9C42A7D1A3C00FCAE13 /* TestPodborAuto_SUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPodborAuto_SUIApp.swift; sourceTree = "<group>"; };
-		78AAF9C62A7D1A3C00FCAE13 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		78AAF9C62A7D1A3C00FCAE13 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		78AAF9C82A7D1A3D00FCAE13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78AAF9CB2A7D1A3D00FCAE13 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		78AAF9D22A7D1A7B00FCAE13 /* CarDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailView.swift; sourceTree = "<group>"; };
+		78AAF9D42A7D1A8400FCAE13 /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		78AAF9D62A7D1A8F00FCAE13 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		78AAF9D82A7D2E4100FCAE13 /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
+		78AAF9DA2A7D2F1900FCAE13 /* Extension + View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + View.swift"; sourceTree = "<group>"; };
+		78AAF9E02A7D61C000FCAE13 /* AddCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +47,7 @@
 		78AAF9B82A7D1A3C00FCAE13 = {
 			isa = PBXGroup;
 			children = (
+				78AAF9E02A7D61C000FCAE13 /* AddCarView.swift */,
 				78AAF9C32A7D1A3C00FCAE13 /* TestPodborAuto.SUI */,
 				78AAF9C22A7D1A3C00FCAE13 /* Products */,
 			);
@@ -52,8 +65,11 @@
 			isa = PBXGroup;
 			children = (
 				78AAF9C42A7D1A3C00FCAE13 /* TestPodborAuto_SUIApp.swift */,
-				78AAF9C62A7D1A3C00FCAE13 /* ContentView.swift */,
+				78AAF9DD2A7D2F5700FCAE13 /* Views */,
 				78AAF9C82A7D1A3D00FCAE13 /* Assets.xcassets */,
+				78AAF9DF2A7D2F7B00FCAE13 /* Model */,
+				78AAF9DC2A7D2F4400FCAE13 /* Extensions */,
+				78AAF9DE2A7D2F6F00FCAE13 /* Services */,
 				78AAF9CA2A7D1A3D00FCAE13 /* Preview Content */,
 			);
 			path = TestPodborAuto.SUI;
@@ -65,6 +81,40 @@
 				78AAF9CB2A7D1A3D00FCAE13 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		78AAF9DC2A7D2F4400FCAE13 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				78AAF9DA2A7D2F1900FCAE13 /* Extension + View.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		78AAF9DD2A7D2F5700FCAE13 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				78AAF9C62A7D1A3C00FCAE13 /* MainView.swift */,
+				78AAF9D22A7D1A7B00FCAE13 /* CarDetailView.swift */,
+				78AAF9D82A7D2E4100FCAE13 /* RowView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		78AAF9DE2A7D2F6F00FCAE13 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				78AAF9D62A7D1A8F00FCAE13 /* DataStore.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		78AAF9DF2A7D2F7B00FCAE13 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				78AAF9D42A7D1A8400FCAE13 /* Car.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +187,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78AAF9C72A7D1A3C00FCAE13 /* ContentView.swift in Sources */,
+				78AAF9DB2A7D2F1900FCAE13 /* Extension + View.swift in Sources */,
+				78AAF9C72A7D1A3C00FCAE13 /* MainView.swift in Sources */,
+				78AAF9D92A7D2E4100FCAE13 /* RowView.swift in Sources */,
+				78AAF9D32A7D1A7B00FCAE13 /* CarDetailView.swift in Sources */,
+				78AAF9D72A7D1A8F00FCAE13 /* DataStore.swift in Sources */,
+				78AAF9E12A7D61C000FCAE13 /* AddCarView.swift in Sources */,
+				78AAF9D52A7D1A8400FCAE13 /* Car.swift in Sources */,
 				78AAF9C52A7D1A3C00FCAE13 /* TestPodborAuto_SUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
