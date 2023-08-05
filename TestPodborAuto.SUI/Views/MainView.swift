@@ -9,9 +9,10 @@ import SwiftUI
 
 struct MainView: View {
     
-    @State private var cars = DataStore().cars
+    @EnvironmentObject var data: DataStore
     @State private var isShowingAddCarScreen = false
     @State private var car: Car? = nil
+    
     
     var body: some View {
         VStack {
@@ -36,15 +37,22 @@ struct MainView: View {
                 .font(.title2)
                 .padding(.trailing, 10)
             }
-            .sheet(isPresented: $isShowingAddCarScreen) {
-                AddCarView(car: $car) { newCar in
-                    cars.append(newCar)
-                    isShowingAddCarScreen.toggle()
-                }
-            }
+//            NavigationView {
+//                List(data.cars) { car in
+//                    NavigationLink(destination: CarDetailView(car: $car)) {
+//                        RowView(car: car)
+//                            .navigationTitle("Авто Подбор")
+//                    }
+//                }
+//                .sheet(isPresented: $isShowingAddCarScreen) {
+//                    AddCarView(car: $car) { newCar in
+//                        data.cars.append(newCar)
+//                        isShowingAddCarScreen.toggle()
+            //                    }
+            //                }
             NavigationView {
-                List(cars) { car in
-                    NavigationLink(destination: CarDetailView(car: car)) {
+                List(data.cars) { car in
+                    NavigationLink(destination: CarDetailView(car: binding(for: car))) {
                         RowView(car: car)
                             .navigationTitle("Авто Подбор")
                     }
@@ -53,22 +61,34 @@ struct MainView: View {
         }
     }
     
+    // Добавьте функцию для создания Binding для car
+    private func binding(for car: Car) -> Binding<Car?> {
+           guard let carIndex = data.cars.firstIndex(where: { $0.id == car.id }) else {
+               fatalError("Car not found")
+           }
+           return Binding<Car?>(
+               get: { data.cars[carIndex] },
+               set: { data.cars[carIndex] = $0 ?? Car(id: UUID(), brand: "", model: "", mileage: 0, countOfOwners: 0, yearOfRelease: "", price: 0, imageName: "") }
+           )
+       }
+   
+            
+    
     private func sortByLowestPrice() {
-        cars.sort { $0.price < $1.price }
+        data.cars.sort { $0.price < $1.price }
     }
     
     private func sortByHighestPrice() {
-        cars.sort { $0.price > $1.price }
+        data.cars.sort { $0.price > $1.price }
     }
 }
     
     
 
 
-//
-//struct MainView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MainView(car: DataStore().cars.first!)
-//
-//    }
-//}
+
+struct MainView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainView()
+    }
+}

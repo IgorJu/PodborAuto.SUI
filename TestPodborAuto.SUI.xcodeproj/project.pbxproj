@@ -47,7 +47,6 @@
 		78AAF9B82A7D1A3C00FCAE13 = {
 			isa = PBXGroup;
 			children = (
-				78AAF9E02A7D61C000FCAE13 /* AddCarView.swift */,
 				78AAF9C32A7D1A3C00FCAE13 /* TestPodborAuto.SUI */,
 				78AAF9C22A7D1A3C00FCAE13 /* Products */,
 			);
@@ -96,6 +95,7 @@
 			children = (
 				78AAF9C62A7D1A3C00FCAE13 /* MainView.swift */,
 				78AAF9D22A7D1A7B00FCAE13 /* CarDetailView.swift */,
+				78AAF9E02A7D61C000FCAE13 /* AddCarView.swift */,
 				78AAF9D82A7D2E4100FCAE13 /* RowView.swift */,
 			);
 			path = Views;

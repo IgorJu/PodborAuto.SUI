@@ -15,5 +15,5 @@ struct Car: Identifiable  {
     var countOfOwners: Int
     var yearOfRelease: String
     var price: Int
-    let imageName: String
+    let imageName: String?
 }

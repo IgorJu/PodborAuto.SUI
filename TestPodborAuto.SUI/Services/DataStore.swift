@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-final class DataStore {
+final class DataStore: ObservableObject {
     @Published var cars = [
         Car(
             id: UUID(),
