@@ -64,6 +64,7 @@ struct CarDetailView: View {
                             Text(car.yearOfRelease)
                         }
                     }
+                    .padding(.bottom, 40)
                 }
                 .padding(20)
             }
