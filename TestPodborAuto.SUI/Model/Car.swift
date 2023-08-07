@@ -16,4 +16,7 @@ struct Car: Identifiable  {
     var yearOfRelease: String
     var price: Int
     let imageName: String?
+    var fullName: String {
+        brand + model
+    }
 }

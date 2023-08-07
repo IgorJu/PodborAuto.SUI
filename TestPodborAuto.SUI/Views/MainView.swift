@@ -27,7 +27,7 @@ struct MainView: View {
         // Применение текстового фильтра
         if !searchText.isEmpty {
             carsToShow = carsToShow.filter { car in
-                car.brand.localizedCaseInsensitiveContains(searchText)
+                car.fullName.localizedCaseInsensitiveContains(searchText)
             }
         }
         
