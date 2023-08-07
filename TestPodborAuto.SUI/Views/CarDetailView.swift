@@ -27,6 +27,7 @@ struct CarDetailView: View {
                             Text("Редактировать ")
                             Image(systemName: "square.and.pencil")
                         }
+                        .padding(.bottom, 10)
                     }
                     .sheet(isPresented: $isEditing) {
                         EditCarView(car: Binding($car)!, isEditing: $isEditing)

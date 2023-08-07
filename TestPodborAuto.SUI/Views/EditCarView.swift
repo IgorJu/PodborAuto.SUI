@@ -28,49 +28,13 @@ struct EditCarView: View {
                 .ignoresSafeArea()
             VStack {
                 Spacer()
-                HStack {
-                    Text("Марка:")
-                        .font(.title2)
-                        .bold()
-                    TextField("Марка", text: $car.brand)
-                        .font(.title2)
-                }
-                HStack {
-                    Text("Модель:")
-                        .font(.title2)
-                        .bold()
-                    TextField("Модель", text: $car.model)
-                        .font(.title2)
-                }
-                HStack {
-                    Text("Пробег:")
-                        .font(.title2)
-                        .bold()
-                    TextField("Пробег", text: $mileageString)
-                        .font(.title2)
-                }
-                HStack {
-                    Text("Год выпуска:")
-                        .font(.title2)
-                        .bold()
-                    TextField("Год выпуска", text: $car.yearOfRelease)
-                        .font(.title2)
-                }
-                HStack {
-                    Text("Цена:")
-                        .font(.title2)
-                        .bold()
-                    TextField("Цена", text: $priceString)
-                        .font(.title2)
-                }
-                HStack {
-                    Text("Кол-во владельцев по ПТС:")
-                        .bold()
-                        .font(.title2)
-                        .frame(width: 295, alignment: .leading)
-                    TextField("Кол-во владельцев", text: $countOfOwnersString)
-                        .font(.title2)
-                }
+                CarBrandField(title: "Марка: ", attribute: $car.brand)
+                CarBrandField(title: "Модель: ", attribute: $car.model)
+                CarBrandField(title: "Пробег: ", attribute: $mileageString)
+                CarBrandField(title: "Год выпуска:", attribute: $car.yearOfRelease)
+                CarBrandField(title: "Цена: ", attribute: $priceString)
+                CarBrandField(title: "Кол-во владельцев по ПТС:", attribute: $countOfOwnersString)
+                
                 Spacer()
                 Button(
                     action: {
@@ -90,8 +54,20 @@ struct EditCarView: View {
     }
 }
 
+struct CarBrandField: View {
+    let title: String
+    @Binding var attribute: String
     
-
+    var body: some View {
+        HStack {
+            Text(title)
+                .font(.title2)
+                .bold()
+            TextField(title, text: $attribute)
+                .font(.title2)
+        }
+    }
+}
 
 struct EditCarView_Previews: PreviewProvider {
     static var previews: some View {

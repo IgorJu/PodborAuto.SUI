@@ -19,9 +19,7 @@ struct MainView: View {
     @State private var selectedBrands: Set<String> = []
     @State private var searchText = ""
     
-    let brandsToFilter: [String] = ["BMW", "Toyota", "Mercedes-Benz"]
-    
-    
+    private let brandsToFilter = ["BMW", "Toyota", "Mercedes-Benz"]
     
     private var filteredCars: [Car] {
         var carsToShow = data.cars
@@ -64,17 +62,17 @@ struct MainView: View {
                         }
                         .padding(.leading, 10)
                     Button("Фильтр") {
-                            showFilterSheet.toggle()
-                        }
-                        .padding(.horizontal)
+                        showFilterSheet.toggle()
+                    }
+                    .padding(.horizontal)
                     //экран фильтрации
-                        .sheet(isPresented: $showFilterSheet) {
-                            FilterBrandView(
-                                selectedBrands: $selectedBrands,
-                                brandsToFilter: brandsToFilter,
-                                isPresented: $showFilterSheet
-                            )
-                        }
+                    .sheet(isPresented: $showFilterSheet) {
+                        FilterBrandView(
+                            selectedBrands: $selectedBrands,
+                            brandsToFilter: brandsToFilter,
+                            isPresented: $showFilterSheet
+                        )
+                    }
                     Button(action: { sortByHighestPrice.toggle() }) {
                         Text("Сортировка по цене")
                             .foregroundColor(.blue)
@@ -96,22 +94,24 @@ struct MainView: View {
                 }
             }
         }
-        .frame(height: 70)
-        TextField("Поиск", text: $searchText)
-            .padding()
-            .background(Color(.systemGray6))
-            .cornerRadius(10)
-            .padding()
+            .frame(height: 70)
+            TextField("Поиск", text: $searchText)
+                .padding()
+                .background(Color(.systemGray6))
+                .cornerRadius(10)
+                .padding()
+        
         NavigationView {
             List(filteredCars) { car in
                 NavigationLink(destination: CarDetailView(car: binding(for: car))) {
                     RowView(car: car)
                         .navigationTitle("Авто Подбор")
+    
                 }
             }
         }
     }
-    
+
     //функция для создания Binding для car
     private func binding(for car: Car) -> Binding<Car?> {
         guard let carIndex = data.cars.firstIndex(where: { $0.id == car.id }) else {

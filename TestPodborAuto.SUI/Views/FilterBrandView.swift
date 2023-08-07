@@ -29,14 +29,14 @@ struct FilterBrandView: View {
                             Text(brand)
                                 .font(.title)
                                 .foregroundColor(.black)
-                                .padding(5)
                             Spacer()
                             if selectedBrands.contains(brand) {
                                 Image(systemName: "checkmark")
                                     .foregroundColor(.blue)
-                                    .font(.title)
+                                    .font(.title2)
                             }
                         }
+                        .padding(10)
                     }
                     .padding(.horizontal)
                 }

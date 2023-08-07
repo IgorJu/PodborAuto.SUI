@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-//убрать запятую из длинных чисел
+//убрать запятую из длинных и чисел добавить пробел
 extension View {
     func formatNumber(_ number: Int) -> String {
         let numberFormatter = NumberFormatter()
