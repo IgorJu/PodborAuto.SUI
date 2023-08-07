@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		786E6C462A7EBE9800D18D46 /* EditCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786E6C452A7EBE9800D18D46 /* EditCarView.swift */; };
+		78A9AF042A80FDD100AE4854 /* FilterBrandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A9AF032A80FDD100AE4854 /* FilterBrandView.swift */; };
 		78AAF9C52A7D1A3C00FCAE13 /* TestPodborAuto_SUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AAF9C42A7D1A3C00FCAE13 /* TestPodborAuto_SUIApp.swift */; };
 		78AAF9C72A7D1A3C00FCAE13 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AAF9C62A7D1A3C00FCAE13 /* MainView.swift */; };
 		78AAF9C92A7D1A3D00FCAE13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78AAF9C82A7D1A3D00FCAE13 /* Assets.xcassets */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		786E6C452A7EBE9800D18D46 /* EditCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCarView.swift; sourceTree = "<group>"; };
+		78A9AF032A80FDD100AE4854 /* FilterBrandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBrandView.swift; sourceTree = "<group>"; };
 		78AAF9C12A7D1A3C00FCAE13 /* TestPodborAuto.SUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestPodborAuto.SUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78AAF9C42A7D1A3C00FCAE13 /* TestPodborAuto_SUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPodborAuto_SUIApp.swift; sourceTree = "<group>"; };
 		78AAF9C62A7D1A3C00FCAE13 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				78AAF9D22A7D1A7B00FCAE13 /* CarDetailView.swift */,
 				78AAF9E02A7D61C000FCAE13 /* AddCarView.swift */,
 				786E6C452A7EBE9800D18D46 /* EditCarView.swift */,
+				78A9AF032A80FDD100AE4854 /* FilterBrandView.swift */,
 				78AAF9D82A7D2E4100FCAE13 /* RowView.swift */,
 			);
 			path = Views;
@@ -192,6 +195,7 @@
 			files = (
 				78AAF9DB2A7D2F1900FCAE13 /* Extension + View.swift in Sources */,
 				78AAF9C72A7D1A3C00FCAE13 /* MainView.swift in Sources */,
+				78A9AF042A80FDD100AE4854 /* FilterBrandView.swift in Sources */,
 				78AAF9D92A7D2E4100FCAE13 /* RowView.swift in Sources */,
 				78AAF9D32A7D1A7B00FCAE13 /* CarDetailView.swift in Sources */,
 				78AAF9D72A7D1A8F00FCAE13 /* DataStore.swift in Sources */,
