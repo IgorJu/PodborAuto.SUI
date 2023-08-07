@@ -69,10 +69,10 @@
 			children = (
 				78AAF9C42A7D1A3C00FCAE13 /* TestPodborAuto_SUIApp.swift */,
 				78AAF9DD2A7D2F5700FCAE13 /* Views */,
-				78AAF9C82A7D1A3D00FCAE13 /* Assets.xcassets */,
 				78AAF9DF2A7D2F7B00FCAE13 /* Model */,
 				78AAF9DC2A7D2F4400FCAE13 /* Extensions */,
 				78AAF9DE2A7D2F6F00FCAE13 /* Services */,
+				78AAF9C82A7D1A3D00FCAE13 /* Assets.xcassets */,
 				78AAF9CA2A7D1A3D00FCAE13 /* Preview Content */,
 			);
 			path = TestPodborAuto.SUI;
