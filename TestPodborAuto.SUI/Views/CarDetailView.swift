@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import RealmSwift
 
 struct CarDetailView: View {
     @Binding var car: Car?
