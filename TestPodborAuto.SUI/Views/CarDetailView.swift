@@ -22,24 +22,25 @@ struct CarDetailView: View {
                         Button(
                             action: {
                                 isEditing.toggle()
+                                print("button edit is tapped")
                             }
                         ) {
                             Text("Редактировать ")
                             Image(systemName: "square.and.pencil")
                         }
-                        .padding(.bottom, 10)
-                    }
-                    .sheet(isPresented: $isEditing) {
-                        EditCarView(car: Binding($car)!, isEditing: $isEditing)
+                        .padding(.bottom, 30)
+                        .sheet(isPresented: $isEditing) {
+                            EditCarView(car: Binding($car)!, isEditing: $isEditing)
+                        }
                     }
                     Spacer()
-                    Image(car.imageName ?? "")
+                    Image(car.imageName)
                         .resizable()
                         .frame(width: 350, height: 280)
                         .cornerRadius(5)
                     Text("\(car.brand) \(car.model), \(car.yearOfRelease)")
                         .font(.title3)
-                    Text("\(formatNumber(car.price))₽")
+                    Text("\(car.price.formattedString())₽")
                         .font(.title2)
                         .bold()
                         .padding(.bottom, 10)
@@ -51,12 +52,12 @@ struct CarDetailView: View {
                         HStack {
                             Text("Пробег, км :")
                                 .foregroundColor(.gray)
-                            Text(formatNumber(car.mileage))
+                            Text(car.mileage)
                         }
                         HStack {
                             Text("Владельцев по ПТС:")
                                 .foregroundColor(.gray)
-                            Text(car.countOfOwners.formatted())
+                            Text(car.countOfOwners)
                         }
                         HStack {
                             Text("Год выпуска:")
@@ -75,9 +76,16 @@ struct CarDetailView: View {
         }
     }
 }
+    
+    
 
-struct CarDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        CarDetailView(car: .constant(DataStore().cars.first))
-    }
-}
+
+                
+                    
+
+
+//struct CarDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CarDetailView(car: .constant(DataStore().cars.first))
+//    }
+//}

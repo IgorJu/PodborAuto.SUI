@@ -6,17 +6,22 @@
 //
 
 import Foundation
+import RealmSwift
 
-struct Car: Identifiable  {
-    var id: UUID
-    var brand: String
-    var model: String
-    var mileage: Int
-    var countOfOwners: Int
-    var yearOfRelease: String
-    var price: Int
-    let imageName: String?
+final class Car: Object, Identifiable  {
+    @Persisted var id = UUID()
+    @Persisted var brand: String
+    @Persisted var model: String
+    @Persisted var mileage: String
+    @Persisted var countOfOwners: String
+    @Persisted var yearOfRelease: String
+    @Persisted var price: String
+    @Persisted var imageName: String
     var fullName: String {
         brand + model
     }
+    
+    override class func primaryKey() -> String? {
+             return "id"
+         }
 }

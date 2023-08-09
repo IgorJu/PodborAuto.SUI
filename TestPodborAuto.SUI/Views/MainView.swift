@@ -6,10 +6,9 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct MainView: View {
-    
-    @EnvironmentObject var data: DataStore
     @State private var car: Car? = nil
     
     @State private var isShowingAddCarScreen = false
@@ -17,36 +16,30 @@ struct MainView: View {
     @State private var showFilterSheet: Bool = false
     
     @State private var selectedBrands: Set<String> = []
-    @State private var searchText = ""
     
     private let brandsToFilter = ["BMW", "Toyota", "Mercedes-Benz"]
+    private var storageManager = StorageManager.shared
+    private var dataManager = DataManager.shared
     
-    private var filteredCars: [Car] {
-        var carsToShow = data.cars
-        
-        // Применение текстового фильтра
-        if !searchText.isEmpty {
-            carsToShow = carsToShow.filter { car in
-                car.fullName.localizedCaseInsensitiveContains(searchText)
+    @ObservedResults(Car.self) var cars
+    
+        private var filteredCars: Results<Car> {
+            var fcars = cars
+            
+            // Применение фильтров по брендам
+            if !selectedBrands.isEmpty {
+                fcars = cars.filter("brand IN %@", selectedBrands)
             }
-        }
-        
-        // Применение фильтров по брендам
-        if !selectedBrands.isEmpty {
-            carsToShow = carsToShow.filter { car in
-                selectedBrands.contains(car.brand)
+            
+            // Сортировка по цене
+            let sortKey = "price"
+            if sortByHighestPrice {
+                fcars = cars.sorted(byKeyPath: sortKey, ascending: false)
+            } else {
+                fcars = cars.sorted(byKeyPath: sortKey, ascending: true)
             }
+            return fcars
         }
-        
-        // Сортировка по цене
-        if sortByHighestPrice {
-            carsToShow.sort { $0.price > $1.price }
-        } else {
-            carsToShow.sort { $0.price < $1.price }
-        }
-        
-        return carsToShow
-    }
     
     var body: some View {
         ZStack {
@@ -86,44 +79,46 @@ struct MainView: View {
                     }
                     //вызов экрана для добавления авто
                     .sheet(isPresented: $isShowingAddCarScreen) {
-                        AddCarView(car: $car) { newCar in
-                            data.cars.append(newCar)
+                        AddCarView(car: $car, isShowingScreen: $isShowingAddCarScreen) { newCar in
+                            storageManager.save(newCar)
                             isShowingAddCarScreen.toggle()
                         }
                     }
                 }
             }
         }
-            .frame(height: 70)
-            TextField("Поиск", text: $searchText)
-                .padding()
-                .background(Color(.systemGray6))
-                .cornerRadius(10)
-                .padding()
-        
+        .frame(height: 70)
         NavigationView {
-            List(filteredCars) { car in
-                NavigationLink(destination: CarDetailView(car: binding(for: car))) {
-                    RowView(car: car)
-                        .navigationTitle("Авто Подбор")
-    
+            List{
+                ForEach(filteredCars, id: \.id) { car in
+                    NavigationLink(destination: CarDetailView(car: binding(for: car))) {
+                        RowView(car: car)
+                            .navigationTitle("Авто Подбор")
+                    }
                 }
             }
         }
     }
 
+    
     //функция для создания Binding для car
     private func binding(for car: Car) -> Binding<Car?> {
-        guard let carIndex = data.cars.firstIndex(where: { $0.id == car.id }) else {
+        guard let carIndex = filteredCars.firstIndex(where: { $0.id == car.id }) else {
             fatalError("Car not found")
         }
-        return Binding<Car?>(
-            get: { data.cars[carIndex] },
-            set: { data.cars[carIndex] = $0 ?? Car(id: UUID(), brand: "", model: "", mileage: 0, countOfOwners: 0, yearOfRelease: "", price: 0, imageName: "") }
+        return .init(
+            get: { filteredCars[carIndex] },
+            set: { updatedCar in
+                guard let updatedCar = updatedCar else { return }
+                storageManager.updateCar(updatedCar)
+            }
         )
     }
 }
+        
+    
 
+    
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
