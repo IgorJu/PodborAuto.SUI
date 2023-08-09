@@ -7,11 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		78057A522A83BB3A006934CC /* Extension + String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78057A512A83BB3A006934CC /* Extension + String.swift */; };
 		786E6C462A7EBE9800D18D46 /* EditCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786E6C452A7EBE9800D18D46 /* EditCarView.swift */; };
 		78A9AF042A80FDD100AE4854 /* FilterBrandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A9AF032A80FDD100AE4854 /* FilterBrandView.swift */; };
-		78A9AF072A81406200AE4854 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 78A9AF062A81406200AE4854 /* Realm */; };
-		78A9AF092A81406200AE4854 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 78A9AF082A81406200AE4854 /* RealmSwift */; };
 		78A9AF0B2A8140C100AE4854 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A9AF0A2A8140C100AE4854 /* StorageManager.swift */; };
 		78A9AF0D2A81424E00AE4854 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A9AF0C2A81424E00AE4854 /* DataManager.swift */; };
 		78AAF9C52A7D1A3C00FCAE13 /* TestPodborAuto_SUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AAF9C42A7D1A3C00FCAE13 /* TestPodborAuto_SUIApp.swift */; };
@@ -22,10 +19,11 @@
 		78AAF9D52A7D1A8400FCAE13 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AAF9D42A7D1A8400FCAE13 /* Car.swift */; };
 		78AAF9D92A7D2E4100FCAE13 /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AAF9D82A7D2E4100FCAE13 /* RowView.swift */; };
 		78AAF9E12A7D61C000FCAE13 /* AddCarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78AAF9E02A7D61C000FCAE13 /* AddCarView.swift */; };
+		78F23D2E2A8424BC00E3A868 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 78F23D2D2A8424BC00E3A868 /* Realm */; };
+		78F23D302A8424C000E3A868 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 78F23D2F2A8424C000E3A868 /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		78057A512A83BB3A006934CC /* Extension + String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + String.swift"; sourceTree = "<group>"; };
 		786E6C452A7EBE9800D18D46 /* EditCarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditCarView.swift; sourceTree = "<group>"; };
 		78A9AF032A80FDD100AE4854 /* FilterBrandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterBrandView.swift; sourceTree = "<group>"; };
 		78A9AF0A2A8140C100AE4854 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
@@ -46,8 +44,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78A9AF092A81406200AE4854 /* RealmSwift in Frameworks */,
-				78A9AF072A81406200AE4854 /* Realm in Frameworks */,
+				78F23D302A8424C000E3A868 /* RealmSwift in Frameworks */,
+				78F23D2E2A8424BC00E3A868 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +57,7 @@
 			children = (
 				78AAF9C32A7D1A3C00FCAE13 /* TestPodborAuto.SUI */,
 				78AAF9C22A7D1A3C00FCAE13 /* Products */,
+				78F23D2C2A8424BC00E3A868 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -76,7 +75,6 @@
 				78AAF9C42A7D1A3C00FCAE13 /* TestPodborAuto_SUIApp.swift */,
 				78AAF9DD2A7D2F5700FCAE13 /* Views */,
 				78AAF9DF2A7D2F7B00FCAE13 /* Model */,
-				78AAF9DC2A7D2F4400FCAE13 /* Extensions */,
 				78AAF9DE2A7D2F6F00FCAE13 /* Services */,
 				78AAF9C82A7D1A3D00FCAE13 /* Assets.xcassets */,
 				78AAF9CA2A7D1A3D00FCAE13 /* Preview Content */,
@@ -90,14 +88,6 @@
 				78AAF9CB2A7D1A3D00FCAE13 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		78AAF9DC2A7D2F4400FCAE13 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				78057A512A83BB3A006934CC /* Extension + String.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		78AAF9DD2A7D2F5700FCAE13 /* Views */ = {
@@ -130,6 +120,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		78F23D2C2A8424BC00E3A868 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -147,8 +144,8 @@
 			);
 			name = TestPodborAuto.SUI;
 			packageProductDependencies = (
-				78A9AF062A81406200AE4854 /* Realm */,
-				78A9AF082A81406200AE4854 /* RealmSwift */,
+				78F23D2D2A8424BC00E3A868 /* Realm */,
+				78F23D2F2A8424C000E3A868 /* RealmSwift */,
 			);
 			productName = TestPodborAuto.SUI;
 			productReference = 78AAF9C12A7D1A3C00FCAE13 /* TestPodborAuto.SUI.app */;
@@ -208,7 +205,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				78A9AF0D2A81424E00AE4854 /* DataManager.swift in Sources */,
-				78057A522A83BB3A006934CC /* Extension + String.swift in Sources */,
 				78AAF9C72A7D1A3C00FCAE13 /* MainView.swift in Sources */,
 				78A9AF0B2A8140C100AE4854 /* StorageManager.swift in Sources */,
 				78A9AF042A80FDD100AE4854 /* FilterBrandView.swift in Sources */,
@@ -437,12 +433,12 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		78A9AF062A81406200AE4854 /* Realm */ = {
+		78F23D2D2A8424BC00E3A868 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 78A9AF052A81406200AE4854 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = Realm;
 		};
-		78A9AF082A81406200AE4854 /* RealmSwift */ = {
+		78F23D2F2A8424C000E3A868 /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 78A9AF052A81406200AE4854 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;

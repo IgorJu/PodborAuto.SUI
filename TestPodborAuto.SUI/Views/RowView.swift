@@ -9,6 +9,7 @@ import SwiftUI
 
 struct RowView: View {
     let car: Car
+    
     var body: some View {
         VStack.init(alignment: .leading) {
             Image(car.imageName)
@@ -18,7 +19,7 @@ struct RowView: View {
             Text("\(car.brand) \(car.model), \(car.yearOfRelease), \(car.mileage) км")
                 .font(.system(size: 14))
                 .frame(width: 280, alignment: .leading)
-            Text("\(car.price.formattedString())₽")
+            Text("\(car.price)₽")
                 .font(.headline)
                 .padding(.bottom, 10)
         }
@@ -26,8 +27,4 @@ struct RowView: View {
     }
 }
 
-//struct RowView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        RowView(car: DataStore().cars.first!)
-//    }
-//}
+

@@ -15,7 +15,7 @@ final class Car: Object, Identifiable  {
     @Persisted var mileage: String
     @Persisted var countOfOwners: String
     @Persisted var yearOfRelease: String
-    @Persisted var price: String
+    @Persisted var price: Int
     @Persisted var imageName: String
     var fullName: String {
         brand + model

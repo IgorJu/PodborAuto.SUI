@@ -42,26 +42,13 @@ final class StorageManager {
     func updateCar(_ car: Car) {
             do {
                 try realm.write {
-                    realm.add(car, update: .modified) // Используем метод add с update: .modified для обновления машины в Realm
+                    realm.add(car, update: .modified) // Используем метод add с update: .modified для обновления машины
                 }
             } catch {
                 print("Error updating car: \(error)")
             }
         }
             
-        
-    
-
-    
-    
-//    func save(_ car: Car, completion: (Car) -> Void) {
-//        write {
-//            let car = Car(value: [car])
-//            realm.add(car)
-//            completion(car)
-//        }
-//    }
-    
     func delete(_ car: Car) {
         write {
             realm.delete(car)

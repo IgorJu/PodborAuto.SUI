@@ -9,8 +9,9 @@ import SwiftUI
 
 struct FilterBrandView: View {
     @Binding var selectedBrands: Set<String>
-    let brandsToFilter: [String]
     @Binding var isPresented: Bool
+    
+    let brandsToFilter: [String]
     
     var body: some View {
         ZStack {
@@ -56,6 +57,6 @@ struct FilterBrandView_Previews: PreviewProvider {
     @State static var selectedBrands: Set<String> = []
     
     static var previews: some View {
-        FilterBrandView(selectedBrands: $selectedBrands, brandsToFilter: ["BMW", "Toyota", "Mercedes"], isPresented: .constant(true))
+        FilterBrandView(selectedBrands: $selectedBrands, isPresented: .constant(true), brandsToFilter: ["BMW", "Toyota", "Mercedes"])
     }
 }

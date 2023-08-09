@@ -18,7 +18,7 @@ struct AddCarView: View {
     @State private var mileage: String
     @State private var yearOfRelease: String
     @State private var countOfOwners: String
-    @State private var price: String
+    @State private var price: Int
     
     private let storageManager = StorageManager.shared
     var onComplete: (Car) -> Void
@@ -31,7 +31,7 @@ struct AddCarView: View {
         _mileage = State(initialValue: car.wrappedValue?.mileage ?? "")
         _yearOfRelease = State(initialValue: car.wrappedValue?.yearOfRelease ?? "")
         _countOfOwners = State(initialValue: car.wrappedValue?.countOfOwners ?? "")
-        _price = State(initialValue: car.wrappedValue?.price ?? "")
+        _price = State(initialValue: car.wrappedValue?.price ?? 0)
         self.onComplete = onComplete
     }
     
@@ -48,7 +48,7 @@ struct AddCarView: View {
                 TextField("Год выпуска", text: $yearOfRelease)
                 TextField("Количество владельцев по ПТС", text: $countOfOwners)
                     .keyboardType(.numberPad)
-                TextField("Цена", text: $price)
+                TextField("Цена", value: $price, formatter: NumberFormatter())
                     .keyboardType(.numberPad)
                 Spacer()
                 Button(action: {

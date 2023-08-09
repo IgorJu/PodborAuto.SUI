@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct CarDetailView: View {
     @Binding var car: Car?
@@ -40,7 +41,7 @@ struct CarDetailView: View {
                         .cornerRadius(5)
                     Text("\(car.brand) \(car.model), \(car.yearOfRelease)")
                         .font(.title3)
-                    Text("\(car.price.formattedString())₽")
+                    Text("\(car.price)₽")
                         .font(.title2)
                         .bold()
                         .padding(.bottom, 10)
@@ -76,16 +77,3 @@ struct CarDetailView: View {
         }
     }
 }
-    
-    
-
-
-                
-                    
-
-
-//struct CarDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CarDetailView(car: .constant(DataStore().cars.first))
-//    }
-//}

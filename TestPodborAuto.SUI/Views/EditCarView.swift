@@ -6,27 +6,17 @@
 //
 
 import SwiftUI
-import RealmSwift
+//import RealmSwift
 
 struct EditCarView: View {
     @Binding var car: Car
     @Binding var isEditing: Bool
     
-    var carToedit: Car?
     @Environment(\.dismiss) private var dismiss
     
-    
-    @State private var mileageString: String
-    @State private var countOfOwnersString: String
-    @State private var priceString: String
-    private let storageManager = StorageManager.shared
-    
-    init(car: Binding<Car>, isEditing: Binding<Bool>, carToedit: Car? = nil) {
+    init(car: Binding<Car>, isEditing: Binding<Bool>) {
         _car = car
         _isEditing = isEditing
-        _mileageString = State(initialValue: String(car.wrappedValue.mileage))
-        _countOfOwnersString = State(initialValue: String(car.wrappedValue.countOfOwners))
-        _priceString = State(initialValue: String(car.wrappedValue.price))
     }
     var body: some View {
         ZStack {
@@ -38,49 +28,26 @@ struct EditCarView: View {
                 CarBrandField(title: "Модель: ", attribute: $car.model)
                 CarBrandField(title: "Пробег: ", attribute: $car.mileage)
                 CarBrandField(title: "Год выпуска:", attribute: $car.yearOfRelease)
-                CarBrandField(title: "Цена: ", attribute: $car.price)
+                HStack {
+                    Text("Цена")
+                        .font(.title2)
+                        .bold()
+                    TextField("Цена", value: $car.price, formatter: NumberFormatter())
+                        .font(.title2)
+                }
                 CarBrandField(title: "Кол-во владельцев по ПТС:", attribute: $car.countOfOwners)
                 
                 Spacer()
-                Button(
-                    action: {
-                        
-                                dismiss()
-                        
-                    }
-                ) {
+                Button(action: {
+                    dismiss()
+                } ) {
                     Text("Сохранить")
                         .font(.title2)
                 }
-                
             }
             .padding()
         }
     }
-    
-    private func update() {
-        if let car = carToedit {
-            
-            do {
-                let realm = try Realm()
-                guard let objectToUpdate = realm.object(ofType: Car.self, forPrimaryKey: car.id) else { return }
-                try realm.write {
-                    objectToUpdate.brand = car.brand
-                    objectToUpdate.mileage = car.mileage
-                    objectToUpdate.price = car.price
-                    objectToUpdate.countOfOwners = car.countOfOwners
-                    objectToUpdate.model = car.model
-                    objectToUpdate.yearOfRelease = car.yearOfRelease
-                    objectToUpdate.imageName = car.imageName
-                }
-            }
-            catch {
-                print(error)
-            }
-            
-        }
-    }
-
 }
 
 struct CarBrandField: View {
@@ -98,10 +65,3 @@ struct CarBrandField: View {
     }
 }
 
-//struct EditCarView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        EditCarView(car: .constant(DataManager.shared.createTempData(completion: {
-//            <#code#>
-//        }). isEditing: .constant(true))
-//    }
-//}

@@ -23,23 +23,25 @@ struct MainView: View {
     
     @ObservedResults(Car.self) var cars
     
-        private var filteredCars: Results<Car> {
-            var fcars = cars
-            
-            // Применение фильтров по брендам
-            if !selectedBrands.isEmpty {
-                fcars = cars.filter("brand IN %@", selectedBrands)
+    private var filteredCars: [Car] {
+        
+        //фильтр по брендам
+        var carsS = Array(cars)
+        if !selectedBrands.isEmpty {
+            carsS = carsS.filter { car in
+                selectedBrands.contains(car.brand)
             }
-            
-            // Сортировка по цене
-            let sortKey = "price"
-            if sortByHighestPrice {
-                fcars = cars.sorted(byKeyPath: sortKey, ascending: false)
-            } else {
-                fcars = cars.sorted(byKeyPath: sortKey, ascending: true)
-            }
-            return fcars
         }
+        
+        // Сортировка по цене
+        if sortByHighestPrice {
+            carsS = carsS.sorted { $0.price > $1.price }
+        } else {
+            carsS = carsS.sorted { $0.price < $1.price }
+            
+        }
+        return carsS
+    }
     
     var body: some View {
         ZStack {
@@ -62,8 +64,8 @@ struct MainView: View {
                     .sheet(isPresented: $showFilterSheet) {
                         FilterBrandView(
                             selectedBrands: $selectedBrands,
-                            brandsToFilter: brandsToFilter,
-                            isPresented: $showFilterSheet
+                            isPresented: $showFilterSheet,
+                            brandsToFilter: brandsToFilter
                         )
                     }
                     Button(action: { sortByHighestPrice.toggle() }) {
@@ -99,7 +101,6 @@ struct MainView: View {
             }
         }
     }
-
     
     //функция для создания Binding для car
     private func binding(for car: Car) -> Binding<Car?> {
@@ -115,10 +116,7 @@ struct MainView: View {
         )
     }
 }
-        
-    
 
-    
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
