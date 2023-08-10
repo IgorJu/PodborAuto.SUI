@@ -38,7 +38,6 @@ struct MainView: View {
             sortedCars = sortedCars.sorted { $0.price > $1.price }
         } else {
             sortedCars = sortedCars.sorted { $0.price < $1.price }
-            
         }
         return sortedCars
     }

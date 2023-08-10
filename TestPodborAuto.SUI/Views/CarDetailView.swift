@@ -22,7 +22,6 @@ struct CarDetailView: View {
                         Button(
                             action: {
                                 isEditing.toggle()
-                                print("button edit is tapped")
                             }
                         ) {
                             Text("Редактировать ")

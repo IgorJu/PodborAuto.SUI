@@ -11,7 +11,6 @@ import RealmSwift
 struct AddCarView: View {
     @Binding var car: Car?
     @Binding var isShowingScreen: Bool
-    @ObservedResults(Car.self) var cars
     
     @State private var brand: String
     @State private var model: String
@@ -20,8 +19,9 @@ struct AddCarView: View {
     @State private var countOfOwners: String
     @State private var price: Int
     
-    private let storageManager = StorageManager.shared
-    var onComplete: (Car) -> Void
+    @ObservedResults(Car.self) var cars
+    
+    private var onComplete: (Car) -> Void
     
     init(car: Binding<Car?>, isShowingScreen: Binding<Bool>, onComplete: @escaping (Car) -> Void) {
         _car = car
@@ -76,9 +76,6 @@ struct AddCarView: View {
         }
     }
 }
-
-
-
 
 struct AddCarView_Previews: PreviewProvider {
     @State static private var car: Car? = nil
