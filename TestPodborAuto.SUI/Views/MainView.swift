@@ -26,21 +26,21 @@ struct MainView: View {
     private var filteredCars: [Car] {
         
         //фильтр по брендам
-        var carsS = Array(cars)
+        var sortedCars = Array(cars)
         if !selectedBrands.isEmpty {
-            carsS = carsS.filter { car in
+            sortedCars = sortedCars.filter { car in
                 selectedBrands.contains(car.brand)
             }
         }
         
         // Сортировка по цене
         if sortByHighestPrice {
-            carsS = carsS.sorted { $0.price > $1.price }
+            sortedCars = sortedCars.sorted { $0.price > $1.price }
         } else {
-            carsS = carsS.sorted { $0.price < $1.price }
+            sortedCars = sortedCars.sorted { $0.price < $1.price }
             
         }
-        return carsS
+        return sortedCars
     }
     
     var body: some View {
